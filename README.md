@@ -1,17 +1,18 @@
 # Git Commit Message Formatter
 
-This is a Visual Studio Code extension that formats git commit messages.
+This is a Visual Studio Code extension that formats git commit messages in the source control input box.
 
 ## Features
 
 - Formats git commit messages according to a predefined style.
-- Works on any file type.
 
 ## How to use
 
 1. Install the extension in VS Code.
-2. Open a git commit message file.
-3. Use the `Format Document` command (`Shift + Alt + F` on Windows, `Shift + Option + F` on macOS) to format the git commit message.
+2. Write a commit message in the source control input box.
+3. If the message exceeds the configured limit (`git.inputValidationLength`), a validation message will appear in the source control input box. Use the Quick Fix command (`Ctrl+.`) to access the `Format commit message` code action.
+
+<video src="quick-fix.mp4" controls title="Commit message quick fix"></video>
 
 ## Development
 
@@ -28,13 +29,7 @@ This is a Visual Studio Code extension that formats git commit messages.
 
 ### Build
 
-Run `npm run compile` to compile the TypeScript code.
-
-### Debug
-
-1. Press `F5` to start debugging the extension.
-2. Open a git commit message file.
-3. Use the `Format Document` command to format the git commit message.
+Press `F5` to compile the extension source code and launch the extension development host.
 
 ### Test
 
