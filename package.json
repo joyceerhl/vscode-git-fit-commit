@@ -26,6 +26,9 @@
   "activationEvents": [
     "onLanguage:scminput"
   ],
+  "repository": {
+    "url": "https://github.com/joyceerhl/vscode-git-fit-commit"
+  },
   "author": "Joyce Er",
   "publisher": "joyceerhl",
   "license": "MIT"
