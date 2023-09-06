@@ -1,4 +1,4 @@
-import CommitMessageFormatter from '@bendera/commit-message-formatter';
+import CommitMessageFormatter, { CommitMessageFormatterOptions } from '@bendera/commit-message-formatter';
 import * as vscode from 'vscode';
 
 export class GitCommitMessageFormatter implements vscode.OnTypeFormattingEditProvider, vscode.DocumentFormattingEditProvider, vscode.CodeActionProvider {
@@ -6,13 +6,11 @@ export class GitCommitMessageFormatter implements vscode.OnTypeFormattingEditPro
   private _formatter: CommitMessageFormatter;
 
   constructor() {
-    const lineLength = vscode.workspace.getConfiguration("git").get("inputValidationLength", 72);
-    this._formatter = new CommitMessageFormatter({ lineLength });
+    this._formatter = new CommitMessageFormatter(this._getFormatterOptions());
 
     vscode.workspace.onDidChangeConfiguration((e) => {
-      if (e.affectsConfiguration("git.inputValidationLength")) {
-        const lineLength = vscode.workspace.getConfiguration("git").get("inputValidationLength", 72);
-        this._formatter = new CommitMessageFormatter({ lineLength });
+      if (e.affectsConfiguration("git.inputValidationLength") || e.affectsConfiguration("git.inputValidationSubjectLength")) {
+        this._formatter = new CommitMessageFormatter(this._getFormatterOptions());
       }
     });
   }
@@ -46,6 +44,16 @@ export class GitCommitMessageFormatter implements vscode.OnTypeFormattingEditPro
 
   getTriggerCharacters(): string[] {
     return ['\n'];
+  }
+
+  private _getFormatterOptions(): CommitMessageFormatterOptions {
+    const gitConfig = vscode.workspace.getConfiguration("git");
+    return {
+      lineLength: gitConfig.get("inputValidationLength", 72),
+      subjectLength: gitConfig.get("inputValidationSubjectLength", 50),
+      subjectMode: 'split-ellipses',
+      collapseMultipleEmptyLines: false
+    }
   }
 
   private _provideFormatTextEdit(document: vscode.TextDocument): vscode.TextEdit[] {
