@@ -1,0 +1,3 @@
+{
+    "gitCommitFormat.subjectLineOverflowStrategy": "Controls how to format subject lines that exceed `#git.inputValidationSubjectLength#`."
+}
