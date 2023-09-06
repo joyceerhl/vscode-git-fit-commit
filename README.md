@@ -14,6 +14,8 @@ This is a Visual Studio Code extension that formats git commit messages in the s
 
 <video src="quick-fix.mp4" controls title="Commit message quick fix"></video>
 
+4. Alternatively, enable `editor.formatOnType` to automatically format your commit message when you insert a newline.
+
 ## Development
 
 ### Prerequisites
