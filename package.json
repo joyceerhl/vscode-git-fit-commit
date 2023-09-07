@@ -30,14 +30,24 @@
   },
   "contributes": {
     "configuration": {
-      "title": "Git Commit Formatter",
+      "title": "Git Commit",
       "properties": {
-        "gitCommitFormat.subjectLineOverflowStrategy": {
+        "gitCommit.subjectLineOverflowStrategy": {
 					"type": "string",
           "enum": ["truncate", "truncate-ellipses", "split", "split-ellipses"],
 					"default": "split",
-					"markdownDescription": "%gitCommitFormat.subjectLineOverflowStrategy%"
-				}
+					"markdownDescription": "%gitCommit.subjectLineOverflowStrategy%"
+				},
+        "gitCommit.subjectLine.lint.enabled": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%gitCommit.subjectLine.lint.enabled%"
+        },
+        "gitCommit.subjectLine.lint.types": {
+          "type": "array",
+          "default": ["fix", "feat", "build", "chore", "ci", "docs", "style", "refactor", "perf", "test", "revert"],
+          "markdownDescription": "%gitCommit.subjectLine.lint.types%"
+        }
       }
     }
   },

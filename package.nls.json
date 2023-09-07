@@ -1,3 +1,5 @@
 {
-    "gitCommitFormat.subjectLineOverflowStrategy": "Controls how to format subject lines that exceed `#git.inputValidationSubjectLength#`."
+    "gitCommit.subjectLineOverflowStrategy": "Controls how to format subject lines that exceed `#git.inputValidationSubjectLength#`.",
+    "gitCommit.subjectLine.lint.enabled": "Controls whether to show a warning when the subject line of a commit message does not start with a type.",
+    "gitCommit.subjectLine.lint.types": "Controls which types a subject line of a commit message can start with when `#gitCommitFormat.subjectLine.lint.enabled#` is `true`."
 }

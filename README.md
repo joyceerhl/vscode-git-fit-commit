@@ -12,9 +12,12 @@ This is a Visual Studio Code extension that formats git commit messages in the s
 2. Write a commit message in the source control input box.
 3. If the message exceeds the configured limit (`git.inputValidationLength`), a validation message will appear in the source control input box. Use the Quick Fix command (`Ctrl+.`) to access the `Format commit message` code action.
 
-<video src="quick-fix.mp4" controls title="Commit message quick fix"></video>
+<video src="format-quick-fix.mp4" controls title="Commit message quick fix"></video>
 
 4. Alternatively, enable `editor.formatOnType` to automatically format your commit message when you insert a newline.
+5. Enable lint warnings and quick fixes when your commit subject line does not start with a [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) type with `gitCommit.subjectLine.lint.enabled`. You can allowlist custom commit types using the `gitCommit.subjectLine.lint.types` setting.
+
+<video src="commit-type-fix.mp4" controls title="Commit message type warning and quick fix"></video>
 
 ## Development
 
