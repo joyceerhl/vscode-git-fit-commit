@@ -82,6 +82,11 @@ export class SummaryLineCompletionItemProvider implements vscode.CompletionItemP
         }
 
         const text = document.lineAt(0).text.toLocaleLowerCase();
+        if (!text.length) {
+            // Don't lint, provide code actions or completions if the input box is empty
+            return true;
+        }
+
         const prefix = text.includes(':') ? text.split(':')[0] : '';
         const allowedPrefixes = this._getAllowedPrefixes();
         return allowedPrefixes.includes(prefix) ? true : prefix;
