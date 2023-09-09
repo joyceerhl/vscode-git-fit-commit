@@ -11,7 +11,7 @@ export class GitCommitMessageFormatter implements vscode.OnTypeFormattingEditPro
     vscode.workspace.onDidChangeConfiguration((e) => {
       if (e.affectsConfiguration("git.inputValidationLength")
       || e.affectsConfiguration("git.inputValidationSubjectLength")
-      || e.affectsConfiguration("gitCommitFormat.subjectLineOverflowStrategy")) {
+      || e.affectsConfiguration("gitCommit.subjectLineOverflowStrategy")) {
         this._formatter = new CommitMessageFormatter(this._getFormatterOptions());
       }
     });
@@ -53,7 +53,7 @@ export class GitCommitMessageFormatter implements vscode.OnTypeFormattingEditPro
     return {
       lineLength: gitConfig.get("inputValidationLength", 72),
       subjectLength: gitConfig.get("inputValidationSubjectLength", 50),
-      subjectMode: vscode.workspace.getConfiguration("gitCommitFormat").get("subjectLineOverflowStrategy", "split"),
+      subjectMode: vscode.workspace.getConfiguration("gitCommit").get("subjectLineOverflowStrategy", "split"),
       collapseMultipleEmptyLines: false
     }
   }
