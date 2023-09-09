@@ -2,7 +2,7 @@
   "name": "git-commit-formatter",
   "displayName": "Git Commit Message Formatter",
   "version": "1.0.0",
-  "description": "Format git commit messages",
+  "description": "Format commit messages from the source control input box",
   "main": "./out/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
