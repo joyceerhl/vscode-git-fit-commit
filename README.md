@@ -7,9 +7,11 @@ This is a Visual Studio Code extension that formats git commit messages in the s
 1. Install the extension in VS Code.
 2. Write a commit message in the source control view input box.
 3. If either the subject line or the body exceeds the configured limit, a validation message will appear in the source control input box. Use the Quick Fix command (`Ctrl+.`) to access and run the `Format commit message` code action.
+
     ![Commit message quick fix](format-quick-fix.gif)
 
 4. If your commit message lacks a `type:` prefix, a validation message will appear in the source control input box. Use the Quick Fix command (`Ctrl+.`) to access and run the `Add commit type` code action.
+
     ![Commit message type warning and quick fix](commit-type-fix.gif)
 
 5. Happy committing!
