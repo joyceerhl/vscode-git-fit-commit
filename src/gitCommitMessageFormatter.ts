@@ -54,7 +54,7 @@ export class GitCommitMessageFormatter implements vscode.OnTypeFormattingEditPro
       lineLength: gitConfig.get("inputValidationLength", 72),
       subjectLength: gitConfig.get("inputValidationSubjectLength", 50),
       subjectMode: vscode.workspace.getConfiguration("gitCommit").get("subjectLine.overflowStrategy", "split"),
-      collapseMultipleEmptyLines: false
+      collapseMultipleEmptyLines: true
     }
   }
 
