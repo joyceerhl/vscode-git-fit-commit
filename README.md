@@ -1,23 +1,28 @@
-# Git Commit Message Formatter
+# Git 50/72 Commit Message Formatter
 
-This is a Visual Studio Code extension that formats git commit messages in the source control input box.
+This is a Visual Studio Code extension that formats git commit messages in the source control input box according to the 50/72 rule. It also supports optional linting and quick fixes for missing `type:` subject line prefixes.
 
-## Features
-
-- Formats git commit messages according to a predefined style.
-
-## How to use
+## Usage
 
 1. Install the extension in VS Code.
-2. Write a commit message in the source control input box.
-3. If the message exceeds the configured limit (`git.inputValidationLength`), a validation message will appear in the source control input box. Use the Quick Fix command (`Ctrl+.`) to access the `Format commit message` code action.
+2. Write a commit message in the source control view input box.
+3. If either the subject line or the body exceeds the configured limit, a validation message will appear in the source control input box. Use the Quick Fix command (`Ctrl+.`) to access and run the `Format commit message` code action.
 
-<video src="format-quick-fix.mp4" controls title="Commit message quick fix"></video>
+    <video src="format-quick-fix.mp4" controls title="Commit message quick fix"></video>
+4. If your commit message lacks a `type:` prefix, a validation message will appear in the source control input box. Use the Quick Fix command (`Ctrl+.`) to access and run the `Add commit type` code action.
 
-4. Alternatively, enable `editor.formatOnType` to automatically format your commit message when you insert a newline.
-5. Enable lint warnings and quick fixes when your commit subject line does not start with a [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) type with `gitCommit.subjectLine.lint.enabled`. You can allowlist custom commit types using the `gitCommit.subjectLine.lint.types` setting.
+    <video src="commit-type-fix.mp4" controls title="Commit message type warning and quick fix"></video>
+5. Happy committing!
 
-<video src="commit-type-fix.mp4" controls title="Commit message type warning and quick fix"></video>
+## Configuration options
+
+* Configure how long your commit message subject lines and bodies should be with the following settings:
+    - `git.inputValidationSubjectLength` (default: 50 chars)
+    - `git.inputValidationLength` (default: 72 chars)
+* Enable `editor.formatOnType` to automatically format your commit message when you insert a newline.
+* Configure whether you want validation and quick fixes for commit types in the subject line:
+    - `gitCommit.subjectLine.lint.enabled`: (default: `false`) 
+    - `gitCommit.subjectLine.lint.types` (default: `feat:`, `fix:` [and other Conventional Commit types](https://www.conventionalcommits.org/en/v1.0.0/))
 
 ## Development
 
