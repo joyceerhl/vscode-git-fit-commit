@@ -32,11 +32,11 @@
     "configuration": {
       "title": "Git Commit",
       "properties": {
-        "gitCommit.subjectLineOverflowStrategy": {
+        "gitCommit.subjectLine.overflowStrategy": {
 					"type": "string",
           "enum": ["truncate", "truncate-ellipses", "split", "split-ellipses"],
 					"default": "split",
-					"markdownDescription": "%gitCommit.subjectLineOverflowStrategy%"
+					"markdownDescription": "%gitCommit.subjectLine.overflowStrategy%"
 				},
         "gitCommit.subjectLine.lint.enabled": {
           "type": "boolean",
