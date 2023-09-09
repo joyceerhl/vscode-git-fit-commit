@@ -1,5 +1,6 @@
 {
   "name": "git-commit-formatter",
+  "displayName": "Git Commit Message Formatter",
   "version": "1.0.0",
   "description": "Format git commit messages",
   "main": "./out/extension.js",
