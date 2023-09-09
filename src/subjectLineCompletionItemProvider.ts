@@ -48,6 +48,13 @@ export class SummaryLineTypeCompletionItemProvider implements vscode.CompletionI
                     const lineText = document.lineAt(0);
                     // Don't use label as filter text so that completions aren't filtered out when the cursor is at the end of the word and we want to insert some other text prior
                     completionItem.filterText = lineText.text;
+                    // If the cursor is at a word boundary, accepting the completion will also replace the word at the cursor.
+                    // Make the insertText the word itself so that the word at the cursor is preserved.
+                    const whitespaceWordRange = document.getWordRangeAtPosition(position, /\s+/);
+                    if (!whitespaceWordRange || whitespaceWordRange.isEmpty) {
+                        // There is no whitespace before the cursor
+                        completionItem.insertText = document.getText(document.getWordRangeAtPosition(position));
+                    }
                     completionItem.additionalTextEdits = [vscode.TextEdit.insert(lineText.range.start, `${prefix}: `)];
                 }
                 return completionItem;
