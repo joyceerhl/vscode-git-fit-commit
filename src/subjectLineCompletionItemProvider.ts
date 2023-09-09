@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-export class SummaryLineCompletionItemProvider implements vscode.CompletionItemProvider, vscode.CodeActionProvider, vscode.Disposable {
+export class SummaryLineTypeCompletionItemProvider implements vscode.CompletionItemProvider, vscode.CodeActionProvider, vscode.Disposable {
 
     private disposables: vscode.Disposable[] = [];
     private diagnosticCollection: vscode.DiagnosticCollection;
