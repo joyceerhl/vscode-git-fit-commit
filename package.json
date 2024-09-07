@@ -13,8 +13,8 @@
   "devDependencies": {
     "@types/mocha": "^8.2.0",
     "@types/node": "^14.14.31",
-    "mocha": "^8.3.2",
     "@types/vscode": "^1.81.0",
+    "mocha": "^10.7.3",
     "typescript": "^4.2.3"
   },
   "dependencies": {
@@ -34,11 +34,16 @@
       "title": "Git Commit",
       "properties": {
         "gitCommit.subjectLine.overflowStrategy": {
-					"type": "string",
-          "enum": ["truncate", "truncate-ellipses", "split", "split-ellipses"],
-					"default": "split",
-					"markdownDescription": "%gitCommit.subjectLine.overflowStrategy%"
-				},
+          "type": "string",
+          "enum": [
+            "truncate",
+            "truncate-ellipses",
+            "split",
+            "split-ellipses"
+          ],
+          "default": "split",
+          "markdownDescription": "%gitCommit.subjectLine.overflowStrategy%"
+        },
         "gitCommit.subjectLine.lint.enabled": {
           "type": "boolean",
           "default": false,
@@ -51,7 +56,19 @@
         },
         "gitCommit.subjectLine.lint.types": {
           "type": "array",
-          "default": ["fix", "feat", "build", "chore", "ci", "docs", "style", "refactor", "perf", "test", "revert"],
+          "default": [
+            "fix",
+            "feat",
+            "build",
+            "chore",
+            "ci",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "revert"
+          ],
           "markdownDescription": "%gitCommit.subjectLine.lint.types%"
         }
       }
