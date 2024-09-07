@@ -26,6 +26,8 @@ This is a Visual Studio Code extension that formats git commit messages in the s
 * Configure whether you want validation and quick fixes for commit types in the subject line:
     - `gitCommit.subjectLine.lint.enabled`: (default: `false`) 
     - `gitCommit.subjectLine.lint.types` (default: `feat:`, `fix:` [and other Conventional Commit types](https://www.conventionalcommits.org/en/v1.0.0/))
+* Configure whether you want the formatter to strip multiple successive newlines:
+    - `gitCommit.collapseMultipleEmptyLines.enabled` (default: `false`)
 
 ## Development
 
