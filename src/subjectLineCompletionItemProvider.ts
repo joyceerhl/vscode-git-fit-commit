@@ -94,7 +94,10 @@ export class SummaryLineTypeCompletionItemProvider implements vscode.CompletionI
             return true;
         }
 
-        const prefix = text.includes(':') ? text.split(':')[0] : '';
+        let prefix = text.includes(':') ? text.split(':')[0] : '';
+        // Strip scope from prefix, if any
+        const scopeRegex = /^([a-zA-Z]+)\(([a-zA-Z]+)\)/g;
+        prefix = scopeRegex.exec(prefix)?.[1] ?? prefix;
         const allowedPrefixes = this._getAllowedPrefixes();
         return allowedPrefixes.includes(prefix) ? true : prefix;
     }
